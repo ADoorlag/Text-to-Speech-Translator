@@ -1,0 +1,8 @@
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./assets/map-background.png');
+    background-size: cover;
+}
+
+#app{
+    box-shadow: 5px 5px 4px 5px #000;
+}
