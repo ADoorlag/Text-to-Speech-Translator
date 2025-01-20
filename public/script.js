@@ -33,12 +33,59 @@ function loadVoices() {
 speechSynthesis.onvoiceschanged = loadVoices;
 loadVoices();
 
-// Play text-to-speech
-playButton.addEventListener('click', () => {
-    const utterance = new SpeechSynthesisUtterance(textInput.value);
-    const selectedVoice = voices[voiceSelect.value];
-    if (selectedVoice) {
-        utterance.voice = selectedVoice;
+//translate text with serverless function
+async function translateText(text, target) {
+  try{
+    const response = await fetch('/api/translate.js', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text, target: target })
+    })
+
+    if (!response.ok) {
+        throw new Error(`Translation failed: ${response.status}: $await response.text()}`);
+    }
+
+    const data = await response.json();
+    return data.data.translations[0].translatedText;
+
+  } catch (error) {
+    console.error('Translation error:', error);
+    alert('Translation failed. Please try again.');
+    return text;  
+  } 
+}
+
+//TTS
+function playText(text, voiceIndex) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    if(voices[voiceIndex]) {
+        utterance.voice = voices[voiceIndex];
     }
     speechSynthesis.speak(utterance);
+}
+
+// Play text-to-speech
+playButton.addEventListener('click', async () => {
+    const text = textInput.value.trim();
+    const target = languageSelect.value;
+    const selectedVoiceIndex = voiceSelect.value;
+
+    if (!text) {
+        alert('Please enter text to translate.');
+        return;
+    }
+
+    try {
+        // Translate text
+        const translatedText = await translateText(text, target);
+
+        // Play translated text
+        playText(translatedText, selectedVoiceIndex);
+    } catch (error) {
+        console.error('Processing error:', error);
+        alert('Processing failed. Please try again.');
+    }
 });
