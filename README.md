@@ -1,34 +1,34 @@
-Text-to-Speech Translator
+# Text-to-Speech Translator
 
-Overview
+## Overview
 
 The Text-to-Speech Translator is a web-based application that enables users to input text, translate it into a desired language, and play the translated text using text-to-speech (TTS) functionality. This project leverages modern web technologies and integrates with Google Cloud Translation API for accurate translations.
 
-Features
+## Features
 
-Input text and translate it into a variety of supported languages.
+- Input text and translate it into a variety of supported languages.
 
-Select voices for text-to-speech playback.
+- Select voices for text-to-speech playback.
 
-User-friendly interface built with TailwindCSS.
+- User-friendly interface built with TailwindCSS.
 
-Asynchronous serverless API calls for real-time translation.
+- Asynchronous serverless API calls for real-time translation.
 
-Support for multiple languages, including English, Spanish, French, German, Italian, Chinese, and Japanese.
+- Support for multiple languages, including English, Spanish, French, German, Italian, Chinese, and Japanese.
 
-Technologies Used
+## Technologies Used
 
-HTML5 and CSS3 (TailwindCSS) for responsive UI design.
+- HTML5 and CSS3 (TailwindCSS) for responsive UI design.
 
-JavaScript for client-side functionality.
+- JavaScript for client-side functionality.
 
-Google Cloud Translation API for language translation.
+- Google Cloud Translation API for language translation.
 
-Speech Synthesis API for text-to-speech playback.
+- Speech Synthesis API for text-to-speech playback.
 
-Node.js for serverless backend integration.
+- Node.js for serverless backend integration.
 
-How to Use
+## How to Use
 
 Open the app in a web browser.
 
@@ -40,34 +40,34 @@ Select the target language from the "Select Language" dropdown.
 
 Click the "Play" button to hear the translated text spoken aloud.
 
-Environment Variables
+## Supported Languages
 
-Ensure the following environment variable is set in the .env file:
+- English (United States)
 
-GOOGLE_TRANSLATE_API_KEY: Your Google Cloud Translation API key.
+- Spanish (Spain)
 
-Supported Languages
+- French (France)
 
-English (United States)
+- German (Germany)
 
-Spanish (Spain)
+- Italian (Italy)
 
-French (France)
+- Chinese (Simplified)
 
-German (Germany)
+- Japanese (Japan)
 
-Italian (Italy)
+## Future Improvements
 
-Chinese (Simplified)
+- Add support for more languages.
 
-Japanese (Japan)
+- Implement error-specific messages for better debugging.
 
-Future Improvements
+- Enhance UI with additional themes and accessibility features.
 
-Add support for more languages.
+- Inlude offline support for TTS playback.
 
-Implement error-specific messages for better debugging.
+- Update JavaScript code to TypeScript
 
-Enhance UI with additional themes and accessibility features.
+## License
 
-Include offline support for TTS playback.
+[MIT](https://choosealicense.com/licenses/mit/)
